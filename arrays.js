@@ -33,6 +33,8 @@ findPair(nums, target)
 // if equal log the values.
 // Do this untill left pointer if les than right pointer.
 
+// TC O(nlogn)
+// SC O(1)
 
 function findPairUsingPointers(nums, target){
     nums.sort((a,b) => a - b)
@@ -52,3 +54,28 @@ function findPairUsingPointers(nums, target){
 }
 
 findPairUsingPointers(nums, target)
+
+
+// Using hashmap
+// tc O(n)
+// sc O(n)
+
+function addSumBest(arr, target) {
+    const map = new Map();
+  
+    for (let i = 0; i < arr.length; i++) {
+      const compliment = target - arr[i];
+  
+      if (map.has(compliment)) {
+        return [map.get(compliment), i];
+      }
+      map.set(arr[i], i);
+    }
+  }
+
+  console.log(addSumBest(nums, target))
+
+
+
+
+  
