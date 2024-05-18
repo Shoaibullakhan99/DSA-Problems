@@ -72,4 +72,49 @@ function zeroMatrix(mat){
 console.log(mat)
 }
 
-zeroMatrix(matrix)
+// zeroMatrix(matrix)
+
+function zermoMatrixOptimal(mat){
+    const n = mat.length;
+    const m = mat[0].length;
+
+    let col0 = 1;
+
+    for(let i = 0; i < n; i++){
+        for(let j = 0; j < m; j++){
+            if(mat[i][j] == 0){
+                mat[i][0] = 0;
+
+                if( j != 0 ){
+                    mat[0][j] = 0;
+                } else {
+                    col0 = 0;
+                }
+            }
+        }
+    }
+
+        for(let i = 1; i < n ; i++){
+            for(let j = 1; j < m; j++){
+                if(mat[i][j] !== 0){
+                    if(mat[0][j] == 0 || mat[i][0] == 0){
+                        mat[i][j] = 0;
+                    }
+                }
+            }
+        }
+
+        if(mat[0][0] == 0){
+            for(let j = 0; j < m; j++){
+                mat[0][j] = 0;
+            }
+        }
+        if(col0 == 0){
+            for(let i = 0; i < n; i++){
+                mat[i][0] = 0
+            }
+        }
+        console.log(mat)
+}
+
+zermoMatrixOptimal(matrix)
