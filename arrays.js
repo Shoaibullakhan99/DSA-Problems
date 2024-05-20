@@ -73,9 +73,4 @@ function addSumBest(arr, target) {
     }
   }
 
-  console.log(addSumBest(nums, target))
-
-
-
-
-  
+  console.log(addSumBest(nums, target))  
