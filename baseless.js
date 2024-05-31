@@ -18,3 +18,19 @@ function solve (input) {
 }
 
 console.log(solve(input))
+
+function printAplabets(){
+    // console.log(String.fromCharCode(97))
+    let count = 1;
+    let res = ''
+    for(let i = 97; i < 103; i++){
+        for(let j = 0 ; j < count; j++){
+            // console.log(String.fromCharCode(i));
+            res += String.fromCharCode(i)
+        }
+        count++;
+    }
+    return res;
+}
+
+console.log(printAplabets())
