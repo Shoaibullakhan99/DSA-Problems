@@ -73,4 +73,42 @@ function addSumBest(arr, target) {
     }
   }
 
-  console.log(addSumBest(nums, target))  
+//   console.log(addSumBest(nums, target))  
+
+//   Sub array with given sum
+
+function subarrayWithSum(arr, target){
+    const len = arr.length;
+    for(let i = 0; i < len; i++){
+        let start = arr[i]
+        for (let j = i + 1; j < len; j++){
+              start += arr[j]
+             if(start == target) {
+                return [i+1, j+1]};
+        }
+    }
+    return -1
+}
+
+console.log(subarrayWithSum([1,2,3,4,5,6,7,8,9,10], 15))
+
+
+function subarrayOptimal(arr, target){
+    var currentSum = 0;
+    let start = 0;
+    for(let end  = 0 ; end  < arr.length; end++){
+        currentSum += arr[end];
+
+        while(currentSum > target && start < end) {
+            currentSum -= arr[start];
+            start++;
+        }
+
+        if(currentSum == target){
+            return [start+1, end+1];
+        }
+    }
+    return -1
+}
+
+console.log(subarrayOptimal([1,2,3,4,5,6,7,8,9,10], 15))
