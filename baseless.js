@@ -33,4 +33,5 @@ function printAplabets(){
     return res;
 }
 
-console.log(printAplabets())
+console.log(printAplabets()) 
+
